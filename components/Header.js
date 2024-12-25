@@ -9,6 +9,7 @@ export default function Header({ name }) {
           {name}
         </Link>
       </p>
+      <div id="search" className="mt-6 max-w-md mx-auto"></div>
     </header>
   );
 }
