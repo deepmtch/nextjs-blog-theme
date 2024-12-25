@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
@@ -13,9 +14,12 @@ class MyDocument extends Document {
         >
           <Main />
           <NextScript />
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
-          <script type="text/javascript" dangerouslySetInnerHTML={{
-            __html: `
+          <Script
+            src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
+            strategy="afterInteractive"
+          />
+          <Script id="algolia-init" strategy="afterInteractive">
+            {`
               algoliasearchNetlify({
                 appId: 'F4TNI6LSR6',
                 apiKey: '99a85f9f246db0f1bc851eb62c1d487b',
@@ -23,8 +27,8 @@ class MyDocument extends Document {
                 branch: 'main',
                 selector: 'div#search',
               });
-            `
-          }} />
+            `}
+          </Script>
         </body>
       </Html>
     );
