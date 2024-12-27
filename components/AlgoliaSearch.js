@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import Head from 'next/head';
+import Script from 'next/script';
+import Link from 'next/link';
 
 const AlgoliaSearch = () => {
   useEffect(() => {
@@ -16,10 +17,14 @@ const AlgoliaSearch = () => {
 
   return (
     <>
-      <Head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
-      </Head>
+      <Link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
+      />
+      <Script 
+        src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
+        strategy="lazyOnload"
+      />
       <div id="search" className="mt-6 max-w-md mx-auto"></div>
     </>
   );
